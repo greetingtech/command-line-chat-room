@@ -1,10 +1,14 @@
 package com.greetingtech.cmd.chat.server.core;
 
+import com.greetingtech.cmd.chat.common.handler.MsgCodeC;
+import com.greetingtech.cmd.chat.server.core.handler.AuthHandler;
+import com.greetingtech.cmd.chat.server.core.handler.Dispatcher;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
 import java.util.concurrent.TimeUnit;
@@ -35,7 +39,10 @@ public class ChatRoomServer {
                 protected void initChannel(SocketChannel socketChannel) throws Exception {
                     ChannelPipeline pipeline = socketChannel.pipeline();
                     pipeline.addLast(new IdleStateHandler(1 ,0, 0, TimeUnit.MINUTES));
-
+                    pipeline.addLast(new LengthFieldBasedFrameDecoder(4 * 1024 * 1024, 12, 4));
+                    pipeline.addLast(new MsgCodeC());
+                    pipeline.addLast(new AuthHandler());
+                    pipeline.addLast(new Dispatcher());
                 }
             });
             ChannelFuture future = bootstrap.bind(port).sync();

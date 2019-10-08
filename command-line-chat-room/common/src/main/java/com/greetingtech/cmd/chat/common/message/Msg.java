@@ -10,7 +10,7 @@ public interface Msg {
 
     int MAGIC = 0xACE666;
 
-    short VERSION = 0;
+    int VERSION = 0;
 
     MsgTypeEnum type();
 

@@ -8,7 +8,7 @@ import io.netty.handler.timeout.IdleStateEvent;
  * @author greetingtech
  * @date 2019-09-02
  */
-public class IdleCloseHandler extends ChannelInboundHandlerAdapter {
+public class IdleCloser extends ChannelInboundHandlerAdapter {
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
