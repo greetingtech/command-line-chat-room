@@ -15,4 +15,6 @@ public class HeartBeatMsg implements Msg {
         return MsgTypeEnum.HEART_BEAT;
     }
 
+    private long time;
+
 }

@@ -6,13 +6,17 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.Attribute;
 
+/**
+ * @author greetingtech
+ * @date 2019-10-08
+ */
 public class AuthHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        Attribute<Boolean> attr = ctx.channel().attr(AttrKeys.LOGIN_KEY);
-        Boolean isLogin = attr.get();
-        if (isLogin || (msg instanceof LoginMsg)) {
+        Attribute<String> attr = ctx.channel().attr(AttrKeys.NICKNAME_KEY);
+        String nickname = attr.get();
+        if (nickname != null || (msg instanceof LoginMsg)) {
             super.channelRead(ctx, msg);
         } else {
             ctx.channel().close();

@@ -16,6 +16,7 @@ public enum MsgTypeEnum {
     LOGOUT(2, LogoutMsg.class),
     ROOM_CHAT_SEND(3, RoomChatSendMsg.class),
     ROOM_CHAT_RECEIVE(4, RoomChatReceiveMsg.class),
+    RESPONSE(5, ResponseMsg.class),
     ;
 
     private int code;

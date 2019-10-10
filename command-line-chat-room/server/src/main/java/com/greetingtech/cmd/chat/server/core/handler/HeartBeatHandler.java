@@ -4,6 +4,10 @@ import com.greetingtech.cmd.chat.common.message.HeartBeatMsg;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+/**
+ * @author greetingtech
+ * @date 2019-10-08
+ */
 public class HeartBeatHandler extends SimpleChannelInboundHandler<HeartBeatMsg> {
 
     @Override

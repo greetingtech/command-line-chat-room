@@ -9,7 +9,7 @@ import com.greetingtech.cmd.chat.client.core.ChatRoomClient;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        ChatRoomClient client = new ChatRoomClient("127.0.0.1", 10001);
+        ChatRoomClient client = new ChatRoomClient("127.0.0.1", 9292);
         client.start();
     }
 

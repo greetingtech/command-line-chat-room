@@ -8,6 +8,10 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author greetingtech
+ * @date 2019-10-08
+ */
 public class Dispatcher extends SimpleChannelInboundHandler<Msg> {
 
     private static final Map<Integer, SimpleChannelInboundHandler> handlerMap;
