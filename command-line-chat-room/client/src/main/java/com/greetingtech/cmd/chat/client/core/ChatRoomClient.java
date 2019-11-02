@@ -34,9 +34,9 @@ public class ChatRoomClient {
     public void start() throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("input username");
-        String username = scanner.nextLine();
+        final String username = scanner.nextLine();
         System.out.println("input password");
-        String password = scanner.nextLine();
+        final String password = scanner.nextLine();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
