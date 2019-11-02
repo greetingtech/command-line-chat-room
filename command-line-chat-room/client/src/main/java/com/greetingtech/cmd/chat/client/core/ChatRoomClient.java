@@ -55,7 +55,7 @@ public class ChatRoomClient {
                     pipeline.addLast(new ChatHandler());
                 }
             });
-            ChannelFuture connect = b.connect(host, port);
+            ChannelFuture connect = b.connect(host, port).sync();
             Channel channel = connect.channel();
             for (; ; ) {
                 String content = scanner.nextLine();
